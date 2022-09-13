@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Métadonnées permettant le référencement dans les moteurs de recherche-->
+    <meta name="author" content="Damien Gruffeille" />
+    <meta
+      name="description"
+      content="Page de présentation de l'élevage Les z'accros des écailles, spécialisé dans le gecko à crête (Correlophus Ciliatus) mais aussi d'autres reptiles. Cet élevage est né de la rencontre de trois passionnés : David HUS, Kévin Pascal et Damien Gruffeille."
+    />
+
+    <!-- Métadonnées permettant de personnaliser l'affichage du lien du site sur FB-->
+    <meta property="og:image" content="photos/damien.jpg" />
+    <!-- image qui s'affichera lors de-->
+    <meta
+      property="og:description"
+      content="Les z'accros des écailles - site web de l'élevage"
+    />
+
+    <title>Les z'accros des écailles</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Les trois lignes ci‑dessous sont un correctif pour que la sémantique
+          HTML5 fonctionne correctement avec les anciennes versions de
+          Internet Explorer-->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- Voici notre en‑tête principale utilisée dans toutes les pages
+          de notre site web -->
+
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html" title="Accueil">Accueil</a></li>
+        <li><a href="#" class="">Mon parcours</a></li>
+        <li><a href="#">Ma formation</a></li>
+        <li><a href="#">Mes loisirs</a></li>
+        <li><a href="contact.html" class="actif">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Ici nous mettons le contenu de la page -->
+    <main>
+      <!-- Il contient un article -->
+      <article id="zoneFormulaires">
+        <h2>Formulaire de contact</h2>
+
+        <p>Pour nous contacter, merci de renseigner les champs ci-dessous :</p>
+
+        <form id="formContact" method="post" action="traitement.js">
+          <fieldset id="infos">
+            <legend>Vos informations</legend>
+
+            <div>
+              <label for="userName">Nom : </label>
+              <input
+                type="text"
+                name="userName"
+                id="userName"
+                placeholder="Saisissez votre nom"
+                title="Nom de l'utilisateur"
+              />
+              <br />
+              <br />
+              <label for="userFName">Prénom : </label>
+              <input
+                type="text"
+                name="userFName"
+                id="userFName"
+                placeholder="Saisissez votre prénom"
+                title="Prénom de l'utilisateur"
+              />
+              <br />
+              <br />
+              <label for="userEmail">Email : </label>
+              <input
+                type="email"
+                name="userEmail"
+                id="userEmail"
+                placeholder="Saisissez votre email"
+                title="Adresse mail de l'utilisateur"
+                required="required"
+              />
+            </div>
+          </fieldset>
+
+          <fieldset id="autresOptions">
+            <legend>Options</legend>
+
+            <p>
+              Cochez le type de demande : <br />
+              <input
+                type="checkbox"
+                name="info"
+                id="info"
+                title="info"
+                placeholder=""
+                checked="true"
+              /><label for="info" title="Information">Information</label>
+              <br />
+              <input
+                type="checkbox"
+                name="dispo"
+                id="dispo"
+                title="dispo"
+                placeholder=""
+              /><label for="dispo" title="Disponibilités"
+                >Demande de disponibilités</label
+              >
+              <br />
+              <input
+                type="checkbox"
+                name="autre"
+                id="autre"
+                title="autre"
+                placeholder=""
+              /><label for="autre" title="autre">Autre type de demande</label>
+              <br />
+            </p>
+
+            <p>
+              <label for="espece">Sélectionnez l'espèce concernée : </label
+              ><br />
+              <select name="espece" id="espece">
+                <option value="vide"></option>
+                <optgroup label="Reptiles">
+                  <option value="tokay">Gecko tokay</option>
+                  <option value="geckoACrete">Gecko à crète</option>
+                </optgroup>
+                <optgroup label="Grenouilles">
+                  <option value="leuco">Dendrobate leucomelas</option>
+                  <option value="pacman">Grenouille pacman</option>
+                </optgroup>
+              </select>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Votre message</legend>
+            <textarea
+              name="messageText"
+              id="messageText"
+              cols="100%"
+              rows="10"
+              title="Zone de saisie du message"
+            >
+Saisissez votre message.</textarea
+            >
+            <div id="sendButton">
+              <input type="submit" value="Envoyer" />
+            </div>
+          </fieldset>
+        </form>
+      </article>
+    </main>
+
+    <!-- Et voici notre pied de page utilisé sur toutes les pages du site -->
+    <footer>
+      <p>©Copyright 2050 par DamienG.Dev. Tous droits reservés.</p>
+    </footer>
+  </body>
+</html>
