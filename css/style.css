@@ -1,3 +1,9 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 :root {
   --main-radius: 5px;
   --main-padding: 5px;
@@ -29,9 +35,12 @@ header {
   background-image: url(../medias/pexels-neo-2653362.jpg);
   background-size: cover;
   display: flex;
+  justify-items: center;
+  align-items: center;
+  padding-left: 15px;
 }
 #titreBandeau {
-  padding: 5rem 0.2rem 0.2rem 2rem;
+  /* padding: 5rem 0.2rem 0.2rem 2rem; */
   color: #dad8d8;
 }
 
@@ -48,6 +57,7 @@ main {
     "bloc1 bloc2 bloc3 bloc4";
   row-gap: 0.2rem;
   column-gap: 0.2rem;
+  min-height: 80%;
 }
 
 img {
@@ -61,23 +71,20 @@ img {
   grid-area: upperText;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "profil textArea textArea";
-  padding: 5px 5px 5px 5px;
-  vertical-align: middle;
+  display: flex;
+  justify-content: space-around;
 }
 
 #profil {
-  grid-area: profil;
+  /* grid-area: profil; */
   width: 150px;
   border-radius: 50%;
-  margin: 20px 0 0 65px;
+  /* margin: 20px 0 0 65px; */
 }
 
 #textArea {
   grid-area: textArea;
+  width: 300px;
 }
 
 #bloc1 {
@@ -86,10 +93,14 @@ img {
   /* padding-top: var(--main-padding); */
   background: #304d65;
   width: 100%;
-  height: 642px;
+  height: 100%;
   position: relative;
-  padding: 15px 0 20px 0;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  overflow-y: hidden;
+}
+
+#bloc1:hover {
+  overflow-y: scroll;
 }
 
 /* *,
@@ -100,8 +111,13 @@ img {
   padding: 0;
 } */
 
+.box-timeline {
+  padding: 10px 0 0 0;
+  position: relative;
+}
+
 .ligne {
-  height: 510px;
+  height: 950px;
   width: 8px;
   margin: 0 auto;
   background: #dad8d8;
@@ -127,16 +143,16 @@ img {
 }
 
 .r1 {
-  top: 120px;
+  top: 0px;
 }
 .r2 {
-  top: 249px;
+  top: 166px;
 }
 .r3 {
-  top: 377px;
+  top: 332px;
 }
 .r4 {
-  top: 510px;
+  top: 498px;
 }
 
 .box {
@@ -153,19 +169,19 @@ img {
 }
 
 .b1 {
-  top: 120px;
+  top: 0px;
   left: calc(50% - 100px);
 }
 .b2 {
-  top: 249px;
+  top: 166px;
   left: calc(50% + 100px);
 }
 .b3 {
-  top: 377px;
+  top: 332px;
   left: calc(50% - 100px);
 }
 .b4 {
-  top: 510px;
+  top: 498px;
   left: calc(50% + 100px);
 }
 
@@ -192,10 +208,55 @@ img {
   padding-top: var(--main-padding);
   background: #304d65;
   width: 100%;
-  height: 385px;
+  height: 100%;
   position: relative;
+  max-width: 100%;
+  margin: 0 auto;
   padding: 15px 0 20px 0;
-  margin-bottom: 10px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.slider p {
+  max-width: 100%;
+  display: none;
+}
+p.active {
+  display: block;
+  animation: fade 0.8s;
+  width: 100%;
+  min-height: 150px;
+  padding: 5px;
+  border-radius: 3px;
+  height: auto;
+  background: #dad8d8;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cont-btn {
+  width: 100%;
+  height: auto;
+  border: 1px solid #000;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+}
+.btn-nav {
+  font-size: 50px;
+  margin: 0 15px;
+  cursor: pointer;
 }
 
 #bloc3 {
@@ -204,7 +265,7 @@ img {
   padding-top: var(--main-padding);
   background: #304d65;
   width: 100%;
-  height: 385px;
+  height: 100%;
   position: relative;
   padding: 15px 0 20px 0;
   margin-bottom: 10px;
@@ -216,7 +277,7 @@ img {
   padding-top: var(--main-padding);
   background: #304d65;
   width: 100%;
-  height: 642px;
+  height: 100%;
   position: relative;
   padding: 15px 0 20px 0;
   margin-bottom: 10px;
@@ -230,8 +291,8 @@ footer {
 
 @media only screen and (max-width: 1000px) {
   body {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 0.1fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     grid-template-areas:
       "header"
       "main"
@@ -239,8 +300,8 @@ footer {
   }
 
   main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.3fr 1fr 1fr 1fr 0.2fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     grid-template-areas:
       "upperText"
       "bloc1"
@@ -249,6 +310,10 @@ footer {
       "bloc4";
     row-gap: 0.2rem;
     column-gap: 0.2rem;
+  }
+
+  #bloc1:hover {
+    overflow-y: visible;
   }
 
   #imgExpPro {
