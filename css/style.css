@@ -95,24 +95,17 @@ img {
   width: 100%;
   height: 100%;
   position: relative;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   overflow-y: hidden;
+  padding: 15px 10px 20px 10px;
 }
 
 #bloc1:hover {
   overflow-y: scroll;
 }
 
-/* *,
-::before,
-::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
-
 .box-timeline {
-  padding: 10px 0 0 0;
+  padding: 75px 0 0 0;
   position: relative;
 }
 
@@ -143,16 +136,16 @@ img {
 }
 
 .r1 {
-  top: 0px;
+  top: 70px;
 }
 .r2 {
-  top: 166px;
+  top: 236px;
 }
 .r3 {
-  top: 332px;
+  top: 402px;
 }
 .r4 {
-  top: 498px;
+  top: 568px;
 }
 
 .box {
@@ -169,19 +162,19 @@ img {
 }
 
 .b1 {
-  top: 0px;
+  top: 75px;
   left: calc(50% - 100px);
 }
 .b2 {
-  top: 166px;
+  top: 236px;
   left: calc(50% + 100px);
 }
 .b3 {
-  top: 332px;
+  top: 402px;
   left: calc(50% - 100px);
 }
 .b4 {
-  top: 498px;
+  top: 568px;
   left: calc(50% + 100px);
 }
 
@@ -279,17 +272,78 @@ p.active {
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 15px 0 20px 0;
+  padding: 15px 10px 20px 10px;
   margin-bottom: 10px;
+}
+
+.tabs {
+  max-width: 800px;
+  margin: 100px auto 0;
+  border-radius: 10px;
+  border: 1px solid #dad8d8;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+.tabs-btn-container {
+  display: flex;
+  border-bottom: 1px solid #dad8d8;
+}
+.tab {
+  border: none;
+  background: transparent;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(16px, 2vw, 20px);
+  /* font-weight: 700; */
+  padding: 30px 0;
+  cursor: pointer;
+}
+/* ajoute une bordure droite sur l'onglet qui n'est pas actif
+   ainsi que sur le 3ème*/
+.tab:not(:nth-child(3), .tab.active-tab) {
+  border-right: 1px solid #dad8d8;
+}
+.tab:nth-child(1) {
+  border-top-left-radius: 5px;
+}
+.tab:nth-child(3) {
+  border-top-right-radius: 5px;
+}
+.tab-content {
+  /* 2eme ligne de rangée / 1ère ligne de colonne / 3ème ligne de rangée / 2ème ligne de colonne */
+  /* on place les tab content de manière superposée de la 2ème ligne de rangée à la 3ème */
+  /* et de la 1ère ligne de colonne à la 2nde */
+  grid-area: 2 / 1 / 3 / 2;
+  padding: clamp(35px, 3vw, 40px);
+  min-height: 200px;
+  opacity: 0;
+  visibility: hidden;
+  /* transition: opacity 0.4s ease-out; */
+}
+.active-tab {
+  background-color: #dad8d8;
+  font-weight: bolder;
+}
+.active-tab-content {
+  visibility: visible;
+  opacity: 1;
+  background-color: #dad8d8;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 footer {
   grid-area: footer;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1368px) {
   body {
     grid-template-columns: auto;
     grid-template-rows: auto;
@@ -312,7 +366,7 @@ footer {
     column-gap: 0.2rem;
   }
 
-  #bloc1:hover {
+  #bloc1 {
     overflow-y: visible;
   }
 
